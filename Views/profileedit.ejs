@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>EDIT PROFILE</title>
+	  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <% include partials/menucss %>
+
+</head>
+<body>
+	<% include partials/top %>
+
+	 <% include partials/sidebar %>
+
+<div class="divprofile" id="divprofile">
+  <% include partials/edittheprofile %>
+</div>
+
+<% include partials/switchuser %>
+
+<script>
+
+
+$('#showuserli').removeClass('active');
+$('#adduserli').removeClass('active');
+$('#communitylistli').removeClass('active');
+$('#switchli').removeClass('active');
+$('#tagli').removeClass('active');
+$('#changepasswordli').removeClass('active');
+$('#logoutli').removeClass('active');
+
+$('#userlist').removeClass('active1');
+$('#adduser').removeClass('active1');
+$('#communitylist').removeClass('active1');
+$('#switchasuser').removeClass('active1');
+$('#tagpannel').removeClass('active1');
+$('#changepassword').removeClass('active1');
+$('#logout').removeClass('active1');
+$('#homeli').addClass('active');
+$('#home').addClass('active1');
+
+</script>
+</body>
+
+</html>

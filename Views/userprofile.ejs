@@ -1,0 +1,41 @@
+
+    <% include partials/commonhead.ejs %>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="usereditprofile.css">
+    <link rel="stylesheet" href="blueimage.css">
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        line-height: 1.42857143;
+        background-color: #F3F4F4;
+      }
+
+      #pagename-icon
+      {
+          float:left;
+          border: 2px solid #2D312C;
+          background-color: #2D312C;
+          color: #fff;
+          font-weight: bold;
+          box-shadow: 0 0 11px black;
+      }
+    </style>
+  </head>
+  <body>
+    <% include partials/userheader.ejs %>
+    <div id="viewscreen" >
+
+        <% include partials/usersidebar.ejs %>
+        <% include partials/commonprofile.ejs %>
+    </div>
+  </body>
+  <script type="text/javascript" src="usersidebar.js">  </script>
+  <script>
+    function aslieditpage() {
+      window.location = '/editinfo'
+    }
+  </script>
+</html>

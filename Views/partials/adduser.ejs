@@ -1,0 +1,70 @@
+
+	<style>
+		.form-group {
+			box-sizing: border-box;
+			border: 4px solid #E5E5E5;
+			padding: 20px;
+			width: 40%;
+			margin: 0 auto;
+		}
+		.form-control {
+			margin-bottom: 30px;
+		}
+		.alertbox{
+			margin-top : 50px;width: 33%;text-align: center;
+		}
+		#heading {
+			font-size: 36px;
+		}
+		@media (max-width: 768px) {
+			.form-group {
+				width: 100%;
+			}
+		}
+	</style>
+
+	<div class="container-flluid">
+		<center>
+		<div class="alert alert-success alert-dismissible alertbox hide" style="">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	<b>New user added.</b>
+
+</div>
+</center>
+		<div class="form-group" style="margin-top : 80px; background-color: #fff;">
+			<form class="" action="/adduserdata" method="post">
+			<label id="heading" style="font-weight : 500">Add User</label>
+			<input type="text" required="" name="fullname" class="form-control" placeholder="Name">
+			<input type="email" required="" name="username" class="form-control" placeholder="Email">
+			<input type="password" required="" name="password" class="form-control" placeholder="User Password">
+			<input type="text" required=""  name="phone" class="form-control" placeholder="Phone">
+			<input type="text" required="" name="city" class="form-control" placeholder="City">
+			<input type="text" required="" name="gender" class="form-control" placeholder="Gender">
+			<input type="text" required="" name="dob"  class="form-control" placeholder="DOB">
+			 <label for="exampleFormControlSelect1">Role: </label>
+		    <select class="form-control" id="exampleFormControlSelect1" name="roleoptions">
+				<option>User</option>
+				<option>Community Builder</option>
+				<option>Admin</option>
+		    </select>
+		    <button class="btn btn-success" id="addbtn">Add User</button>
+		   <a value="Add User" class="btn btn-danger" href="/templating">Cancel</a>
+				</form>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+
+	$(document).ready(function(){
+//		alert("fd");
+		 $('.alertbox').show();
+});
+var submit=document.getElementById("addbtn");
+
+submit.addEventListener("click",function()
+{
+
+});
+
+	</script>

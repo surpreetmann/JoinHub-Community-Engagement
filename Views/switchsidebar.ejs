@@ -1,0 +1,68 @@
+<div id="sidebar">
+    <ul class="sidebar-list">
+        <li class="list" id="mobile-pic">
+            <div style="margin-right:10px">
+                <center>
+                    <img src="dp.png" id="mobile-img">
+                </center>
+            </div>
+        </li>
+
+        <li class="list" id="bars">
+        <a onclick="showsidebar()" id="open">
+            <span class="list-span">
+                <i class="fas fa-bars" id="icon"></i>
+            </span>
+            cq
+        </a>
+        </li>
+
+        <li class="list home">
+            <a onclick="open_home_page()">
+                <span class="list-span">
+                    <i class="fas fa-user" id="icon"></i>
+                </span>
+                 <%= obj.name %>
+            </a>
+        </li>
+
+        <li class="list communitypage">
+            <a onclick="open_communities_page()">
+                <span class="list-span">
+                    <i class="fas fa-users" id="icon"></i>
+                </span>
+                Communities
+            </a>
+        </li>
+
+        <li class="list switchadmin" data-toggle="modal" data-target="#switch-model">
+            <a onclick="open_switchmodel_page()">
+                <span class="list-span">
+                    <i class="fas fa-toggle-on" id="icon"></i>
+                </span>
+                Switch As Admin
+            </a>
+        </li>
+
+        <li class="list changepassword">
+            <a onclick="open_changepassword_page()">
+                <span class="list-span">
+                    <i class="fas fa-lock" id="icon"></i>
+                </span>
+                Change Password
+            </a>
+        </li>
+
+        <li class="list" data-toggle="modal" data-target="#logout-model" >
+            <a>
+                <span class="list-span">
+                    <i class="fas fa-sign-out-alt" id="icon"></i>
+                </span>
+                Logout
+            </a>
+        </li>
+    </ul>
+</div>
+
+<% include logoutmodel.ejs %>
+<% include switchmodel.ejs %>

@@ -1,0 +1,83 @@
+<style media="screen">
+	.cover{
+		position:absolute;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+		background-color:#575757;
+		z-index:-1;
+		opacity:0;
+		transition:0.4s;
+		width : 100%;
+		height : 1000px;
+	}
+	.logout{
+		margin: auto;
+	z-index: 100;
+	position: absolute;
+	transform: translate(-50%,50%);
+	left: -50%;
+
+	transition: 0.4s;
+	background-color: #ffffff;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+	border-radius: 5px;
+	height: 150px;
+	width: 334px;
+	}
+.switchbtn{
+		text-transform: uppercase;
+font-size: 14px;
+font-weight: bold;
+text-shadow: none;
+display: inline-block;
+padding: 6px 12px;
+float: right;
+	}
+</style>
+</div>
+<div class="cover">
+</div>
+<div class="logout">
+	<div class="">
+	<h3 style="font-size: 22px; padding-left:10px; padding: 10px;">Switch As User</h3>
+</div>
+<div class="" style="margin-left : 15px;">
+	<h5>Do you really want to switch state...</h5>
+</div>
+	<div class="">
+
+		<button type="button" id="switchno" style="margin-right: 10px; margin-left: 10px;" class="switchbtn btn btn-danger" name="button">No</button>
+		<button type="button" id="switchyes" class="switchbtn btn btn-success" name="button">Yes</button>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	function switchuser()
+	{
+		document.querySelector(".cover").style.opacity = '0.4';
+		document.querySelector(".cover").style.zIndex = 100;
+		document.querySelector(".logout").style.left = "50%";
+		document.querySelector(".logout").style.bottom = "50%";
+		var btn1=document.querySelector("#switchno");
+		var btn2=document.querySelector("#switchyes");
+
+		btn1.addEventListener("click",function()
+	{
+		document.querySelector(".cover").style.opacity = '0';
+		document.querySelector(".cover").style.zIndex = -1;
+		document.querySelector(".logout").style.left = "-50%";
+
+	});
+	btn2.addEventListener("click",function()
+	{
+	document.querySelector(".cover").style.opacity = '0';
+	document.querySelector(".cover").style.zIndex = -1;
+	document.querySelector(".logout").style.left = "-50%";
+
+	});
+	}
+
+</script>

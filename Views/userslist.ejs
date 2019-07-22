@@ -1,0 +1,221 @@
+<% include partials/commonhead.ejs %>
+<link rel="stylesheet" href="userslist.css">
+<link rel="stylesheet" href="common.css">
+<link href="trumbowyg.css" rel="stylesheet">
+</head>
+<body classs="body">
+<% include partials/header.ejs %>
+    <div id="viewscreen" >
+    <% include partials/sidebar.ejs %>
+        <div id="rightview">
+            <div class="container-fluid div-min-width" style="padding:0">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div style="margin-left:20px;margin-right:20px;">
+                            <!-- MODAL DIVS -->
+                            <center>
+
+                                            <!-- Modal -->
+                            <div id="mailModal" class="modal fade" id="popUp" role="dialog" style="z-index:9999">
+                                <div class="modal-dialog modal-md">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title" id="mailheader">Send Reminder Mail</h4>                                        </div>
+                                        <div class="modal-body">
+                                                <div class="form-horizontal"> <!-- form -->
+                                                    <div class="form-group">
+                                                      <label class="control-label col-sm-2" for="email">To:</label>
+                                                      <div class="col-sm-10">
+                                                        <input type="email" name="username" class="form-control" id="emailPop" readonly>
+                                                      </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                      <label class="control-label col-sm-2">Subject:</label>
+                                                      <div class="col-sm-10">
+                                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Title">
+                                                      </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                      <div class="col-sm-12"><!--Body-->
+                                                        <div id="editor">
+                                                            <textarea type="text" class="form-control" name="body" id="body"></textarea>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    
+                                                  </div> <!-- form -->
+                                        </div>
+                                        <div class="modal-footer">
+                                                <div class="form-group">
+                                                <div class="col-sm-offset-2 col-sm-10">
+                                                  <button class="btn btn-default" id="mailbutton" style="float:right" >Send</button>
+                                                </div>
+                                              </div>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="editModal" class="modal fade" role="dialog" style="z-index:9999;">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 id="eheading" style="text-align:left;" class="modal-title">Update <%= obj.email %></h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                                <div class="form-horizontal">
+                                                <div class="form-group">
+                                                    <div class="col-lg-5 col-lg-offset-3" style="width:50%;">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-2">Email:</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" id="email" placeholder="Email" value="<%= obj.email %>">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-2">Phone:</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" id="phone" placeholder="Phone No" value="<%= obj.phone %>">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-2">City:</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" id="city" value="<%= obj.city %>" placeholder="City">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-2">Status:</label>
+                                                    <div class="col-sm-10">
+                                                        <select class="form-control" id="status">
+                                                            <option value="pending">Pending</option>
+                                                            <option value="confirmed">Confirmed</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-2">Role:</label>
+                                                    <div class="col-sm-10">
+                                                        <select class="form-control" id="role">
+                                                            <option value="user">User</option>
+                                                            <option value="community manager">Community Manager</option>
+                                                            <option value="admin">Admin</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-sm-offset-2 col-sm-10" style="text-align:left;">
+                                                        <button class = "btn btn-default" id="editsubmit" data-dismiss="modal">Update</button>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="activatemodal" class="modal fade" role="dialog" style="top:30%;">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="activatemodal-title" style="text-align:left;"></h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p id="activatemodal-body" style="text-align:left;"></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button id="activeTrue" type="button" class="btn btn-success" data-dismiss="modal">Yes</button>
+                                        <button id="activeFalse" type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </center>
+                        <!-- AFTER MODAL-->
+
+                        <div id="container-parent" style="margin-left:20px; margin-right:20px;">
+                            <div class="container" style="padding:0; margin-bottom:3%;">
+                                <center>
+                                    <p></p>
+                                </center>
+                                <div class="form-control" id="pagename-icon" style="width:90px;">User list</div>
+                                <select class="form-control" id="role-select" style="float:right;margin-left:10px; width:14%; background-color:black; color:white;">
+                                    <option value="all">All</option>
+                                    <option value="admin">Admins</option>
+                                    <option value="user">Users</option>
+                                    <option value="community builder">Community Builder</option>
+                                </select>
+                                <select class="form-control" id="status-select" style="float:right;margin-left:10px; width:10%; background-color:black; color:white;">
+                                    <option value="all">All</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="confirmed">Confirmed</option>
+                                </select>
+
+                                <button class="btn btn-default" style="float:right;background-color: #2D312C;color: #fff;">
+                                    <span class="glyphicon glyphicon-refresh">
+                                    </span>
+                                    Refresh
+                                </button>
+                                <br>
+                                <br>
+                                <br>
+                                <div class="table-wrapper">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <table id="users-table" class="table table-striped table-bordered"  style="display:table;width:100%">
+                                                <thead>
+
+                                                        <th>Username/Email</th>
+                                                        <th>Phone</th>
+                                                        <th>City</th>
+                                                        <th>Status</th>
+                                                        <th>Role</th>
+                                                        <th>Actions</th>
+
+                                                </thead>
+
+                                                <tbody id="table-body">
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script type="text/javascript" src="header.js"></script>
+<script type="text/javascript" src="sidebar.js"></script>
+<script type="text/javascript" src="userslist.js"></script>
+<script type = "text/javascript" src="trumbowyg.min.js"></script>
+
+</html>

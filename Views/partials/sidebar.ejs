@@ -1,0 +1,80 @@
+<div id="div2" class="d2">
+
+<!--div><img src="1.png"></div-->
+<a href="#" id="mobile-cq" onclick="funcNav()"><span class="fa"><i class="fa fa-bars"></i></span>cq</a>
+<div id="menu-dp" style="margin-right: 10px;">
+     		<center>
+            <img src="img.png" style="height: 60px;width: 60px;border-radius:50%">
+        </center>
+     	 </div>
+<a id="homeli" href="/templating"><span class="fa"><i id="home" class="fa fa-home"></i></span>Home</a>
+<a href="/getadduser" id="adduserli"><span class="fa"><i class="fa fa-plus-square" id="adduser"></i></span>Add User</a>
+<a href="showuser" id="showuserli"><span class="fa"><i class="fa fa-list-ul" id="userlist"></i></span>User List</a>
+<a href="/menucommunitylist" id="communitylistli"><span class="fa"><i class="fa fa-list-alt" id="communitylist"></i></span>Community List</a>
+<a href="#" id="switchli" onclick="switchuser()"><span class="fa"><i class="fa fa-toggle-off" id="switchasuser"></i></span>Switch As User</a>
+<a href="menutags" id="tagli"><span class="fa"><i class="fa fa-tags" id="tagpanel"></i></span>Tag Panel</a>
+<a href="changepassword" id="changepasswordli"><span class="fa"><i class="fa fa-lock" id="changepassword"></i></span>Change Password</a>
+<a href="/logout" id="logoutli"><span class="fa"><i class="fa fa-sign-out" id="logout"></i></span>Logout</a>
+</div>
+
+
+
+<script>
+function funcNav()
+{
+	var div2=document.getElementById('div2');
+	var divprofile=document.getElementById('divprofile');
+	if(div2.style.width=="250px")
+	{
+		div2.style.width="50px";
+		divprofile.style.marginLeft="0px"
+  //  divprofile.style.paddingLeft="55px"
+
+		if(window.innerWidth<=768)
+		{
+			div2.style.width="0px";
+			divprofile.style.marginLeft="0px"
+    //  divprofile.style.paddingLeft="0px"
+
+		}
+  }
+	else
+	{
+		divprofile.style.marginLeft="230px"
+  //  divprofile.style.paddingLeft="20px"
+
+		div2.style.width="250px";
+	}
+
+}
+
+
+
+
+function myFunction2(y) {
+var div2=document.getElementById('div2');
+  if (y.matches) { // If media query matches
+    	div2.style.width="50px";
+  }
+}
+
+var y = window.matchMedia("(min-width: 768px)")
+myFunction2(y)
+y.addListener(myFunction2)
+
+
+
+
+
+
+function myFunction1(x) {
+var div2=document.getElementById('div2');
+  if (x.matches) { // If media query matches
+    	div2.style.width="0px";
+  }
+}
+
+var x = window.matchMedia("(max-width: 768px)")
+myFunction1(x)
+x.addListener(myFunction1)
+</script>
