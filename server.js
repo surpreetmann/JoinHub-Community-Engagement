@@ -1567,8 +1567,8 @@ function sendmailer(mailto,content,sub)
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'surpreetmann35@gmail.com',
-      pass: 'Helouhenri@99'
+      user: '1234@gmail.com',
+      pass: '1234'
     }
   });
 
@@ -1602,8 +1602,8 @@ function mailer(mail_person,userpass)
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'surpreetmann35@gmail.com',
-      pass: 'Helouhenri@99'
+      user: '1234@gmail.com',
+      pass: '1234'
     }
   });
 
