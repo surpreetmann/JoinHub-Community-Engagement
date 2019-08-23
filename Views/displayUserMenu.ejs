@@ -12,6 +12,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.ckeditor.com/4.11.4/full/ckeditor.js"></script>
+
   <% include partials/menucss %>
 </head>
 <body>
@@ -19,8 +21,18 @@
 <% include partials/top %>
 
 <% include partials/sidebar %>
-<div class="divprofile" id="divprofile">
-  <% include partials/profile %>
+<style media="screen">
+  .divtable{
+    padding-left: 50px;
+  }
+  @media(max-width : 768px){
+    .divtable{
+      padding-left: 0px;
+    }
+  }
+</style>
+<div class="col-lg-12 scroll-possible divprofile divtable" id="divprofile" style="padding-right : 2px">
+  <% include partials/displayUser %>
 </div>
 
 
@@ -29,7 +41,7 @@
   <script>
 
 //var selector = '.nav li';
-$('#showuserli').removeClass('active');
+$('#homeli').removeClass('active');
 $('#adduserli').removeClass('active');
 $('#communitylistli').removeClass('active');
 $('#switchli').removeClass('active');
@@ -37,7 +49,7 @@ $('#tagli').removeClass('active');
 $('#changepasswordli').removeClass('active');
 $('#logoutli').removeClass('active');
 
-$('#userlist').removeClass('active1');
+$('#home').removeClass('active1');
 $('#adduser').removeClass('active1');
 $('#communitylist').removeClass('active1');
 $('#switchasuser').removeClass('active1');
@@ -45,8 +57,8 @@ $('#tagpannel').removeClass('active1');
 $('#changepassword').removeClass('active1');
 $('#logout').removeClass('active1');
 //$('#edit-profile-nav').addClass('active');
-$('#homeli').addClass('active');
-$('#home').addClass('active1');
+$('#showuserli').addClass('active');
+$('#userlist').addClass('active1');
 
   </script>
 </body>

@@ -1,0 +1,203 @@
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+<style media="screen">
+  .fa-set{
+    font-size : 14px;
+    padding-right : 0px;
+  }
+  .btn{
+    border-radius : 0;
+  }
+  #page-content-wrapper {
+    left : 0px;
+    position: absolute;
+    padding: 15px;
+    width: 100%;
+    overflow-x: hidden;
+}
+.community-header-top {
+    width: 100%;
+    background-image: linear-gradient(to bottom, #4ba2b7, #42a6be, #38aac6, #29adcd, #0fb1d5);
+    height: 180px;
+}
+.community-head-btn {
+    background-color: rgba(255,255,255,0.1);
+    color: #fff;
+    margin-left: 100px;
+    border: 1px solid #fff;
+}
+a.active-icon {
+    border: 1px solid #fff !important;
+    color: #fff !important;
+    border-bottom: 4px solid #fff !important;
+    background-color: rgba(255,255,255,0.1) !important;
+}
+.community-panel-main-div {
+    border: 0;
+    border-radius: 0;
+    margin-top: 50px;
+}
+.community-panel-heading {
+    border-radius: 0;
+    background-image: linear-gradient(to top, #4ba2b7, #42a6be, #38aac6, #29adcd, #0fb1d5);
+}
+.community-panel-btn {
+    color: #fff;
+    background: transparent;
+    border-color: #fff;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+}
+.community-div {
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-color: #CCCCCC;
+}
+.comnametxt {
+    margin-top: 25px;
+    font-weight: 600;
+    /* color: #7D7D7D; */
+    text-decoration: none;
+    word-wrap: break-word;
+    text-transform: capitalize;
+}
+</style>
+<body>
+  <div id="page-content-wrapper" style="padding:0;margin-top:42px;"> <!--Margin Top is new-->
+           <div class="container-fluid page-content-div" style="padding:0">
+              <div class="row">
+                 <div class="col-lg-12 scoll-possible" style="padding:0">
+
+
+
+
+  <!--====================================================================-->
+  <div class="community-header-top" style="height:50px;padding-top:6px;">
+  <div class="col-sm-12 community-sub-head">
+      <a class="btn community-head-btn active-icon" href="/community">
+        <i class="fa fa-users fa-set"></i>
+      </a>
+      <a class="btn community-head-btn" style="margin-left:10px" href="/communitysearch">
+        <i class="fa fa-search fa-set"></i>
+      </a>
+  </div>
+  </div>
+  <!--====================================================================-->
+   <div class="container" style="padding:0">
+  <div class="col-sm-12">
+    <div class="align-center-all">
+      <div class="container">
+        <div class="form-horizontal col-sm-3 col-md-3 col-lg-3"></div>
+        <div class="form-horizontal col-sm-6 col-md-6 col-lg-6">
+            <h3 class="page-header" style="color:#707070">Create Community</h3>
+
+            <!-- <form action="/addcommunitydata" method="POST" id="communityform" > -->
+                <div class="form-group">
+                    <input class="form-control" type="text" required="" name="communityName" id="communityName" placeholder="Name" maxlength="70">
+                </div>
+                <div class="form-group">
+                        <label style="color:#707070">Description</label>
+                      <div id="myedit" style="height : 300px">
+
+                      </div>
+
+                        </div>
+                <div class="form-group ">
+                    <label style="color:#707070">Rule :</label>
+                    <input class="radio radio-inline" type="radio" checked="" id="communityRuleD" value="Direct" name="communityMembershipRule"> Direct
+                    <input class="radio radio-inline" type="radio" value="Permission" id="communityRuleP" name="communityMembershipRule"> Permission
+                </div>
+
+                <form class="" action="/updatecommunityPic" method="post" enctype="multipart/form-data">
+
+                <div class="form-group" style="display:none;">
+                    <input class="form-control" id="file" name="communityImage" type="file">
+                </div>
+
+                <div class="form-group">
+                  <div class="col-xs-4 col-sm-3">
+                    <span class="btn btn-warning" onclick="$('#file').click()">Upload Image</span>
+                  </div>
+                  <div class="col-xs-8 col-sm-9" style="white-space: nowrap;">
+                    <p id="filename" style="font-size:18px;font-weight:bold;color:#707070"></p>
+                  </div>
+                </div>
+                <input type="submit" name="" id="uploadpic"  value="" style="display : none">
+                </form>
+
+                <div class="form-group" style="display:none">
+                  <input type="text" id="getdesc" name="desc" value="">
+                  <!-- <div class="col-xs-1 col-sm-1">
+                      <input type="checkbox" class="checkbox-custom" style="outline: none;" id="check" onchange="appendData()">
+                  </div>
+                  <div class="col-xs-8 col-sm-9" style="font-weight:bold;margin-top:5px;color:#707070">
+                      Local Community
+                  </div> -->
+                </div>
+
+                <div class="form-group" id="dynamic">
+
+                </div>
+                <div class="form-group">
+                        <input class="form-control btn btn-primary" type="button"  onClick="create()" value="Create Community">
+                </div>
+            <!-- </form> -->
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
+  <br>
+  <!--====================================================================-->
+
+  </div>
+  </div>
+  </div>
+  </div>
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+  <script>
+    var quill = new Quill('#myedit', {
+      theme: 'snow'
+    });
+
+function create()
+  {
+    var communityName = document.getElementById("communityName");
+  //  var desc = document.getElementById("communityName");
+    var communityRuleD = document.getElementById("communityRuleD");
+    var communityRule;
+    if(communityRuleD.checked)
+    {
+      communityRule="Direct";
+    }
+    else {
+      communityRule="Pending";
+    }
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+      var request = new XMLHttpRequest();
+        request.addEventListener('load', function()
+        {
+          if(document.getElementById("file").value!="")
+           document.getElementById('uploadpic').click();
+           else {
+            window.location = '/addcommunity'; 
+           }
+
+        });
+        request.open('POST', '/addcommunitydata');
+        request.setRequestHeader("Content-Type", "application/json");
+        request.send(JSON.stringify({'name' : communityName.value,'desc' : quill.getText(),'rule' : communityRule, 'date' :date }));
+
+
+
+
+     document.getElementById("getdesc").value=quill.getText();
+    //console.log(quill.getText());
+  }
+
+
+
+  </script>

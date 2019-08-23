@@ -1,0 +1,185 @@
+<style media="screen">
+.communityheader-profile-mobile {
+  height: 50px;
+}
+.community-panel-btn {
+    color: #fff;
+    background: transparent;
+    border-color: #fff;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+}
+.community-header-top {
+    width: 100%;
+    background-image: linear-gradient(to bottom, #4ba2b7, #42a6be, #38aac6, #29adcd, #0fb1d5);
+    height: 50px;
+}
+.allSidesSoft {
+    box-shadow: 0 3px 10px 0 rgba(115,143,147,.3);
+}
+.panel {
+    border: 1px solid #DFDFDF !important;
+}
+.adminPic {
+    background: rgb(255, 255, 255) !important;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+}
+.adminContent {
+    margin-top: 10px;
+}
+.communityprofile-name-pc {
+    overflow: auto;
+    z-index: 1;
+    height: 60px;
+    margin-top: 15px;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    /* color: #838686; */
+    text-transform: capitalize;
+    font-weight: bold;
+}
+.img-communityprofile-pic {
+    background: rgb(255, 255, 255) !important;
+    height: 100px;
+    width: 100px;
+    z-index: 2;
+    position: absolute;
+    margin-top: -40px;
+    border: 4px solid #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+.btn {
+    border-radius: 0;
+}
+</style>
+
+  <div id="page-content-wrapper" style="padding:0;margin-top:42px"> <!--Margin Top is new-->
+           <div class="container-fluid page-content-div" style="padding:0">
+              <div class="row">
+                 <div class="col-lg-12 scoll-possible" style="padding:0;left:-5px;">
+
+
+
+
+    <div class="community-header-top communityheader-profile-mobile" style="padding-top:6px;position:relative;">
+      <div class="container pc">
+
+
+
+                    <button class="btn btn-info community-panel-btn requestBtn joinBtn" data-id="0" id="join"style="float:right">Ask To Join <i class="fa fa-ask"></i></button>
+
+
+
+  </div>
+
+
+  </div>
+
+  <div class="container community-profile-conatiner">
+  <div class="col-sm-2 col-xs-12 center-mobile pc">
+  <a href="/usercommunityprofile/<%=data[0].id%>">
+    <img src=<%=data[0].cimage%> class="img-communityprofile-pic allSides" style="background:#fff">
+  </a>
+  </div>
+
+  <div class="col-sm-8 communityprofile-name-pc communityprofile-system">
+    <a href="/community/communityprofile/5cf367c50a79ed143952599c" class="communityprofile-name-pc">
+      <%=data[0].name%>
+    </a>
+  </div>
+
+
+  </div>
+  <center>
+      <hr style="border-top:2px solid #E6E6E6;width:85%;margin-top:0">
+  </center>
+
+
+  <div class="container" style="width:94% !important">
+
+      <div class="col-sm-3 col-xs-12">
+        <div class="panel panel-default allSidesSoft" style="border-radius:0">
+
+          <div class="panel-body" style="border:0;border-radius:0">
+
+                <div class="col-sm-12 col-xs-12 center-all">
+
+
+
+                              <button class="btn btn-primary requestBtn joinBtn" data-id="0" id="join">Ask To Join <i class="fa fa-ask"></i></button>
+
+
+
+                </div>
+
+          </div>
+          <div class="panel-footer community-panel-sideBtn-link">
+
+              <p class="center-all" style="margin:0">
+                0 Members
+              </p>
+
+          </div>
+        </div>
+
+          <div class="panel panel-default allSidesSoft" style="border-radius:0">
+            <div class="panel-heading" style="border:0;border-radius:0">
+              Community Managers
+            </div>
+            <div class="panel-body" style="border:0;border-radius:0">
+              <div id="commuity-owner-detail">
+                <!--Owner Info-->
+              <div class="col-sm-12 col-md-12 col-lg-12 adminInfo">  <div class="col-sm-6 col-md-6 col-lg-4 col-xs-4 center-all">      <a href="/viewprofile/5cf366a50a79ed1439525999"><img src="/dp.png" class="adminPic allSides"></a>  </div><div class="col-sm-6 col-md-6 col-lg-8 col-xs-8 adminContent" style="padding:0">  <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12" style="padding:0">    <span class="label label-success" style="margin-top:10px;">Owner</span>  </div>   <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12" style="padding:0;">     <a href="/viewprofile/5cf366a50a79ed1439525999"><%=data[0].owner%></a>   </div></div></div></div>
+              <div id="commuity-admins-detail">
+                <!--Admin Info-->
+              </div>
+            </div>
+          </div>
+      </div>
+      <style>
+        .full-description{
+          display:none;
+        }
+        .less-description-btn{
+          display: none;
+        }
+      </style>
+      <div class="col-sm-8 col-xs-12 separator-community-admin" style="padding:0 10px 10px 10px;">
+
+        <div class="panel panel-default allSidesSoft" style="border-radius:0">
+          <div class="panel-heading center-all" style="border:0;border-radius:0">
+            About Community
+          </div>
+          <div class="panel-body" style="border:0;border-radius:0;">
+
+
+                <p class="short-description center-all">
+                  <%=data[0].desc%>
+
+                </p>
+                <div class="full-description">
+                  <%=data[0].desc%>
+                </div>
+
+          </div>
+
+        </div>
+
+          <div class="col-sm-12" id="needGlobalInProfile" style="padding:0">
+              <!--Here global will come-->
+          </div>
+      </div>
+  </div>
+
+
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <script type="text/javascript">
+
+  </script>

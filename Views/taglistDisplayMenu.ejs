@@ -19,8 +19,22 @@
 <% include partials/top %>
 
 <% include partials/sidebar %>
-<div class="divprofile" id="divprofile">
-  <% include partials/profile %>
+<style media="screen">
+  .divtable{
+    padding-left: 55px;
+    padding-right: 5px;
+  }
+  @media(max-width : 768px){
+    .divtable{
+      padding-left: 5px;
+      padding-right: 0px;
+    }
+  }
+</style>
+
+
+<div class=" col-lg-12 scroll-possible divprofile divtable" id="divprofile" >
+  <% include partials/tagListDisplay %>
 </div>
 
 
@@ -33,7 +47,7 @@ $('#showuserli').removeClass('active');
 $('#adduserli').removeClass('active');
 $('#communitylistli').removeClass('active');
 $('#switchli').removeClass('active');
-$('#tagli').removeClass('active');
+$('#homeli').removeClass('active');
 $('#changepasswordli').removeClass('active');
 $('#logoutli').removeClass('active');
 
@@ -41,12 +55,12 @@ $('#userlist').removeClass('active1');
 $('#adduser').removeClass('active1');
 $('#communitylist').removeClass('active1');
 $('#switchasuser').removeClass('active1');
-$('#tagpannel').removeClass('active1');
+$('#home').removeClass('active1');
 $('#changepassword').removeClass('active1');
 $('#logout').removeClass('active1');
 //$('#edit-profile-nav').addClass('active');
-$('#homeli').addClass('active');
-$('#home').addClass('active1');
+$('#tagli').addClass('active');
+$('#tagpanel').addClass('active1');
 
   </script>
 </body>

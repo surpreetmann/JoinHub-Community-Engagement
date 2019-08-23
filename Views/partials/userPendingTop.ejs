@@ -19,23 +19,24 @@
 <a class="navbar-brand" style="font-size: 20px;font-weight: bold;" href="#" >cq</a>
 <a href="#" class="navbar-toggler ml-auto" style="border : none;" data-toggle="collapse"><span class="adminlabel" >Admin</span></a>
 
-<button class="navbar-toggle " style="color : #fff; margin-top: 0px;" onclick="funcNav()" id="menu-toggle-pc">
+<button class="navbar-toggle " style="color : #fff; margin-top: 0px;"  id="menu-toggle-pc">
                <span class="glyphicon glyphicon-th-large" aria-hidden="true">
                </span>
              </button>
 
             <div class="collapse navbar-collapse">
 
-              <a class="nav-item" style="color : #fff; margin-left :30px; cursor :pointer; " onclick="funcNav()" id="menu-toggle-pc">
-                              <span class="glyphicon glyphicon-th-large" aria-hidden="true">
-                              </span>
+              <a href="/logout" class="nav-item" style="color : #fff; margin-left :30px; cursor :pointer; ">
+                <span class="glyphicon glyphicon-log-out" aria-hidden="true">
+                </span>
                             </a>
             </div>
+
              <div class="collapse navbar-collapse" style="position: fixed;right: 0;">
 
-                     <span class="label label-warning" >superadmin</span>
-                       <span class="label label-success" style="margin-right : 20px">Admin</span>
-                    <a href="/profileedit"> <img src=<%= data[0].image %> style="height: 40px;width : 40px; border-radius : 50%" class="profilePic"></a>
+                     <!-- <span class="label label-warning" >superadmin</span> -->
+                       <span class="label label-success" style="margin-right : 20px"> <%= data[0].username %> </span>
+                     <a href="/userProfilePending"> <img src=<%= data[0].image%> style="height: 40px;width : 40px; border-radius : 50%" class="profilePic"></a>
                 </div>
 
 </nav>

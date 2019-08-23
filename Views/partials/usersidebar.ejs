@@ -1,59 +1,78 @@
-<div id="sidebar">
-    <ul class="sidebar-list">
-        <li class="list" id="mobile-pic">
-            <div style="margin-right:10px">
-                <center>
-                    <img src="dp.png" id="mobile-img">
-                </center>
-            </div>
-        </li>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<div id="div2" class="d2">
 
-        <li class="list" id="bars">
-        <a onclick="showsidebar()" id="open">
-            <span class="list-span">
-                <i class="fas fa-bars" id="icon"></i>
-            </span>
-            cq
-        </a>
-        </li>
-
-        <li class="list home">
-            <a onclick="open_home_page()">
-                <span class="list-span">
-                    <i class="fas fa-user" id="icon"></i>
-                </span>
-                 <%= obj.name %>
-            </a>
-        </li>
-
-        <li class="list communitypage">
-            <a onclick="open_communities_page()">
-                <span class="list-span">
-                    <i class="fas fa-users" id="icon"></i>
-                </span>
-                Communities
-            </a>
-        </li>
-
-        <li class="list changepassword">
-            <a onclick="open_changepassword_page()">
-                <span class="list-span">
-                    <i class="fas fa-lock" id="icon"></i>
-                </span>
-                Change Password
-            </a>
-        </li>
-
-        <li class="list" data-toggle="modal" data-target="#logout-model" >
-            <a>
-                <span class="list-span">
-                    <i class="fas fa-sign-out-alt" id="icon"></i>
-                </span>
-                Logout
-            </a>
-        </li>
-        
-    </ul>
+<!--div><img src="1.png"></div-->
+<a href="#" id="mobile-cq" onclick="funcNav()"><span class="fa"><i class="fa fa-bars"></i></span>cq</a>
+<div id="menu-dp" style="margin-right: 10px;">
+     		<center>
+            <img src=<%= data[0].image%> style="height: 60px;width: 60px;border-radius:50%">
+        </center>
+     	 </div>
+<a id="homeli" href="/userProfile"><span class="fa"><i id="home" class="fa fa-user"></i></span>Home</a>
+<a href="/community" id="communitylistli"><span class="fa"><i class="fa fa-users" id="communitylist"></i></span>Community List</a>
+<a href="#" id="switchli" onclick="switchuser()"><span class="fa"><i class="fa fa-toggle-on" id="switchasuser"></i></span>Switch As User</a>
+<a href="userchangepassword" id="changepasswordli"><span class="fa"><i class="fa fa-lock" id="changepassword"></i></span>Change Password</a>
+<a href="/logout" id="logoutli"><span class="fa"><i class="fa fa-sign-out-alt" id="logout"></i></span>Logout</a>
 </div>
 
-<% include logoutmodel.ejs %>
+
+
+<script>
+function funcNav()
+{
+	var div2=document.getElementById('div2');
+	var divprofile=document.getElementById('divprofile');
+	if(div2.style.width=="250px")
+	{
+		div2.style.width="50px";
+		divprofile.style.marginLeft="0px"
+  //  divprofile.style.paddingLeft="55px"
+
+		if(window.innerWidth<=768)
+		{
+			div2.style.width="0px";
+			divprofile.style.marginLeft="0px"
+    //  divprofile.style.paddingLeft="0px"
+
+		}
+  }
+	else
+	{
+		divprofile.style.marginLeft="230px"
+  //  divprofile.style.paddingLeft="20px"
+
+		div2.style.width="250px";
+	}
+
+}
+
+
+
+
+function myFunction2(y) {
+var div2=document.getElementById('div2');
+  if (y.matches) { // If media query matches
+    	div2.style.width="50px";
+  }
+}
+
+var y = window.matchMedia("(min-width: 768px)")
+myFunction2(y)
+y.addListener(myFunction2)
+
+
+
+
+
+
+function myFunction1(x) {
+var div2=document.getElementById('div2');
+  if (x.matches) { // If media query matches
+    	div2.style.width="0px";
+  }
+}
+
+var x = window.matchMedia("(max-width: 768px)")
+myFunction1(x)
+x.addListener(myFunction1)
+</script>

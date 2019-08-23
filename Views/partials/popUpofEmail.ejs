@@ -1,0 +1,42 @@
+
+  <div class="modal fade" id="emailpopup" role="dialog" >
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+          <div class="modal-header">
+    <h4 class="modal-title" id="mailheader">Send Reminder Mail</h4>
+            <button type="button" class="close" id="closebtn" data-dismiss="modal">×</button>
+
+          </div>
+          <div class="modal-body">
+          <!------------------------------------------------------------------------------------>
+          <div class="form-horizontal"> <!-- form -->
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="email">To:</label>
+              <div class="col-sm-10">
+                <input type="email" name="username" class="form-control" id="emailPop">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2">Subject:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Title">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-12"><!--Body-->
+              <textarea type="text" class="form-control" name="body" id="bodytext" tabindex="-1" style="height: 50px;"></textarea>
+
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button class="btn btn-default" id="mailbutton" style="float:right; margin-right:15px ">Send</button>
+              </div>
+            </div>
+          </div> <!-- form -->
+          <!---------------------------------------------------------------------------------->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

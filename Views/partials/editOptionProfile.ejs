@@ -77,7 +77,11 @@ flex : 1;
   border-color : #ddd;
 }
 
-
+.profdp{
+	display : none;
+	margin-bottom:0px;
+	margin-top : 30px;
+}
 
 @media (min-width: 768px)
 {
@@ -89,6 +93,10 @@ flex : 1;
   #desktop-dp {
     display:block;
   }
+
+	.profdp{
+		display : none;
+	}
 }
 
 
@@ -97,19 +105,35 @@ flex : 1;
   .box{
     margin-bottom : 15px;
   }
+	.profdp{
+		display : block;
+		margin-bottom:0px;
+	}
+	.contain{
+		margin-top : 20px;
+	}
+
 }
 
 </style>
 
 <body>
-
-
+	<center>
+	<div class="profile-pic-center-main-div mobile profdp" style="">
+	  <img src= <%=data[0].image%> class="profile-pic-center allSides" style="width: 120px;margin-top: 60px;">
+	</div>
+</center>
 <div class="contain">
 
 <div class="dp">
-  <img src=<%=data[0].image%> id="desktop-dp" >
+  <img src=<%= data[0].image%>  id="desktop-dp" >
 </div>
 <br><br>
+<div class="form-group">
+                    <a href="/editProfile" class="btn btn-primary pull-right" style="margin-right:15px">Edit</a>
+                  </div>
+									<br>
+									<br>
 <div>
   <div class="wrap">
 

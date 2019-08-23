@@ -5,7 +5,70 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="login.css" media="screen">
+    <style type="text/css">
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #fff; /*#efefef*/;
+  text-align: center;
+  width: 100%;
+  height: 80px;
+}
+.form-control{
+  border-radius: 0
+}
+.background  {
+    /* background-image: url('/app_pics/bg/header.jpg'); */
+    -webkit-filter: blur(8px);
+    -moz-filter: blur(8px);
+    -o-filter: blur(8px);
+    -ms-filter: blur(8px);
+    filter: blur(8px);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    text-align:left;
+    margin-right:-4px;
+    text-align: center;
+}
+header{
+  z-index: 1;
+  background-color: #fff;
+  color:#000;
+}
+
+  .allSides
+  {
+  box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  -moz-box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  -o-box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  }
+
+.responsive-login-form{
+  width: 60%;
+}
+@media(max-width: 768px)
+{
+  .responsive-login-form{
+    width: 100%;
+  }
+}
+  </style>
   </head>
  <body onload="initPage()">
 <header style="width: 100%;height:60px;text-align:left" class="allSides">
@@ -19,18 +82,16 @@
 
         <form action="/log" method="post">
           <div class="form-group" style="margin: 10px">
-              <input type="text" required="" name="username" id="username" class="form-control" placeholder="Username"><br/>
+              <input type="text" required="" name="username" class="form-control" placeholder="Username"><br/>
           </div>
           <div class="form-group" style="margin: 10px">
-
-              <input type="password" required="" name="password" id="password" class="form-control" placeholder="Password" ><br/>
+              <input type="password" required="" name="password" class="form-control" placeholder="Password"><br/>
           </div>
           <div class="form-group" style="margin: 10px">
-              <input type="submit" value="Login" class="btn btn-success" id="logbtn">
+              <input type="submit" value="Login" class="btn btn-success">
+              <a href="/auth/github" class="btn btn-danger">Github Login</a>
+              <!-- <a href="/auth/google" class="btn btn-danger">Google</a> -->
           </div>
-                 <a class = "submit" href="/auth/github" id="githubbtn"><i class="fab fa-github" style="size:5px;"></i>GITHUB LOGIN</a>
-
-
         </form>
   </div>
 </div>
@@ -47,39 +108,10 @@
 
 function initPage() {
     var date = new Date();
-    var currentyear = date.getFullYear();
-    document.getElementById("copyright").innerHTML = "cq &copy; "+currentyear;
+    var currentdate = date.getFullYear();
+    document.getElementById("copyright").innerHTML = "cq &copy; "+currentdate;
 }
 
 </script>
-<script>
-var username = document.getElementById("username");
-var password = document.getElementById("password");
-var log = document.getElementById("logbtn");
-
-log.addEventListener("click", function() {
-  if (username.value != "" && password.value != "") {
-    var request = new XMLHttpRequest();
-    request.addEventListener("load", function() {
-      var data = JSON.parse(request.responseText);
-      console.log(data);
-      if (data.length > 0) {
-        alert("sucessful");
-      } else {
-        alert("wrong username or password");
-        password.value = "";
-      }
-    });
-    request.open("POST", "/log");
-    request.setRequestHeader("Content-Type", "application/json");
-    request.send(
-      JSON.stringify({ username: username.value, password: password.value })
-    );
-  } else {
-    alert("All fields are required");
-  }
-});
-</script>
   </body>
-  <!--<script src="login.js" type="text/javascript"></script>-->
 </html>

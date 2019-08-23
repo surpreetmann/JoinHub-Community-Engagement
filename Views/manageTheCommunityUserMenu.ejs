@@ -16,40 +16,40 @@
 </head>
 <body>
 
-<% include partials/top %>
+<% include partials/userTop %>
 
-<% include partials/sidebar %>
+<% include partials/userSidebar %>
 <div class="divprofile" id="divprofile">
-  <% include partials/profile %>
+  <% include partials/manageCommunity %>
 </div>
 
 
 
-  <% include partials/switchtoUser %>
-  <script>
-
-//var selector = '.nav li';
-$('#showuserli').removeClass('active');
-$('#adduserli').removeClass('active');
-$('#communitylistli').removeClass('active');
-$('#switchli').removeClass('active');
-$('#tagli').removeClass('active');
-$('#changepasswordli').removeClass('active');
-$('#logoutli').removeClass('active');
-
-$('#userlist').removeClass('active1');
-$('#adduser').removeClass('active1');
-$('#communitylist').removeClass('active1');
-$('#switchasuser').removeClass('active1');
-$('#tagpannel').removeClass('active1');
-$('#changepassword').removeClass('active1');
-$('#logout').removeClass('active1');
-//$('#edit-profile-nav').addClass('active');
-$('#homeli').addClass('active');
-$('#home').addClass('active1');
-
-  </script>
+  <% include partials/switchingtoAdmin %>
 </body>
 
+<script>
+
+//var selector = '.nav li';
+$('#homeli').removeClass('active');
+$('#showuserli').removeClass('active');
+$('#changepasswordli').removeClass('active');
+$('#switchli').removeClass('active');
+$('#tagli').removeClass('active');
+$('#adduserli').removeClass('active');
+$('#logoutli').removeClass('active');
+
+$('#home').removeClass('active1');
+$('#showuser').removeClass('active1');
+$('#changepassword').removeClass('active1');
+$('#switchasuser').removeClass('active1');
+$('#tagpannel').removeClass('active1');
+$('#adduser').removeClass('active1');
+$('#logout').removeClass('active1');
+//$('#edit-profile-nav').addClass('active');
+$('#communitylistli').addClass('active');
+$('#communitylist').addClass('active1');
+
+</script>
 
 </html>

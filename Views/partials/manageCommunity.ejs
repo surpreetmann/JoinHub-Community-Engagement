@@ -1,0 +1,305 @@
+<style media="screen">
+.communityheader-profile-mobile {
+  height: 50px;
+}
+.community-panel-btn {
+    color: #fff;
+    background: transparent;
+    border-color: #fff;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+}
+.community-header-top {
+    width: 100%;
+    background-image: linear-gradient(to bottom, #4ba2b7, #42a6be, #38aac6, #29adcd, #0fb1d5);
+    height: 50px;
+}
+.allSidesSoft {
+    box-shadow: 0 3px 10px 0 rgba(115,143,147,.3);
+}
+.panel {
+    border: 1px solid #DFDFDF !important;
+}
+.adminPic {
+    background: rgb(255, 255, 255) !important;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+}
+.adminContent {
+    margin-top: 10px;
+}
+.communityprofile-name-pc {
+    overflow: auto;
+    z-index: 1;
+    height: 60px;
+    margin-top: 15px;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    /* color: #838686; */
+    text-transform: capitalize;
+    font-weight: bold;
+}
+.img-communityprofile-pic {
+    background: rgb(255, 255, 255) !important;
+    height: 100px;
+    width: 100px;
+    z-index: 2;
+    position: absolute;
+    margin-top: -40px;
+    border: 4px solid #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+.btn {
+    border-radius: 0;
+
+}
+.commuity-profile-menu-btn {
+  margin-bottom: 5px;
+  float: right;
+  border: 2px solid #D1CFCF;
+}
+.manageCommunity-head-btn {
+  width: 80%;
+  color: #6F6E6E;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 4px;
+  margin-top: 2px;
+  text-decoration: none;
+}
+.allSidesSoft {
+  box-shadow: 0 3px 10px 0 rgba(115,143,147,.3);
+}
+.community-user-div {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.community-member-pic {
+  height: 50px;
+  width: 50px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.comusername {
+  margin-top: 20px;
+  font-weight: bold;
+  /* color: #7D7D7D; */
+  font-size: 18px;
+  display: inline-block;
+  text-decoration: none;
+  white-space: nowrap;
+  text-transform: capitalize;
+}
+.community-user-short-btn {
+  margin-top: 20px;
+  color: #7D7D7D;
+  font-size: 20px;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+.manageCommunity-btn-active {
+  color: #1C73DD !important;
+  font-weight: bold;
+  text-decoration: none;
+}
+.manageCommunity-child-btn {
+  width: 80%;
+  color: #848484;
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 4px;
+  margin-top: 2px;
+  text-decoration: none;
+}
+.manageCommunity-child-btn {
+  width: 80%;
+  color: #848484;
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 4px;
+  margin-top: 2px;
+
+}
+</style>
+
+
+<div id="page-content-wrapper" style="padding:0;margin-top:42px">
+         <div class="container-fluid page-content-div" style="padding:0">
+            <div class="row">
+               <div class="col-lg-12 scoll-possible" style="padding:0;left:-5px;">
+
+
+
+
+  <div class="community-header-top communityheader-profile-mobile" style="padding-top:6px;position:relative;">
+    <div class="container pc">
+
+
+
+
+
+</div>
+
+
+</div>
+
+<div class="container community-profile-conatiner">
+<div class="col-sm-2 col-xs-12 center-mobile pc">
+<a href="/usercommunityprofile/<%=data._id%>">
+  <img src="<%=data[0].d.image%>" class="img-communityprofile-pic allSides" style="background:#fff">
+</a>
+</div>
+
+<div class="col-sm-8 communityprofile-name-pc communityprofile-system">
+  <a href="/community/communityprofile/5cf367c50a79ed143952599c" class="communityprofile-name-pc">
+    <%=data[0].d.name%>
+
+  </a>
+</div>
+<div class="col-sm-2 col-xs-12 center-mobile" style="padding-top:10px;float:right">
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle commuity-profile-menu-btn" type="button" data-toggle="dropdown">
+    <i class="fa fa-bars"></i>
+  </button>
+  <ul class="dropdown-menu custom-commuity-dropdown dropdown-menu-right" style="margin-top:40px">
+
+
+      <li>
+          <a href="/community/discussion/5ce262d10a79ed1439525910" class="community-profile-option-btn">
+            Discussions
+          </a>
+      </li>
+
+
+
+      <li>
+          <a href="/community/managecommunity/5ce262d10a79ed1439525910" class="community-profile-option-btn">
+            Manage Community
+          </a>
+      </li>
+
+
+      <li>
+          <a href="/community/communityprofile/5ce262d10a79ed1439525910" class="community-profile-option-btn">
+            Community Profile
+          </a>
+      </li>
+
+      <li>
+          <a href="/community/communitymembers/5ce262d10a79ed1439525910" class="community-profile-option-btn">
+            Community Members
+          </a>
+      </li>
+
+    </ul>
+</div>
+</div>
+
+</div>
+<center>
+    <hr style="border-top:2px solid #E6E6E6;width:85%;margin-top:0">
+</center>
+
+
+
+<div class="container">
+<div class="col-sm-12 col-xs-12 col-lg-12 col-md-12" style="padding-bottom:5px;border-bottom:1px solid #c4c4c4">
+  <nonlink class="manageCommunity-head-btn" style="cursor: context-menu;">
+    Manage Community
+  </nonlink>
+  <a href="/community/invite/5ce262d10a79ed1439525910" style="float:right;font-weight:600">
+    Invite Users
+  </a>
+
+  <a class="pc" href="/community/editcommunity/5ce262d10a79ed1439525910" style="float:right;font-weight:600;margin-right:15px">
+    Edit Community
+  </a>
+
+</div>
+<div class="col-sm-12 col-xs-12 col-lg-12 col-md-12" style="padding:10px 0 0 0;">
+
+  <div class="col-sm-3 manageCommunity-commuity-div" style="padding:0">
+
+      <!-- <div class="panel-heading allSidesSoft center-all mobile" style="background:#fff;margin-bottom:5px">
+          <a class="btn btn-primary editcommunity-btn">
+            Edit Commuity
+          </a>
+      </div> -->
+
+    <div class="panel-body allSidesSoft" style="background:#fff">
+        <a class="manageCommunity-child-btn manageCommunity-btn-active" onclick="UserList()" id="UsersShowBtn">Users (<%=data[0].d.member.length%>)</a>
+        <br>
+        <a class="manageCommunity-child-btn" href="#" onclick="AllAdmins()" id="AdminsShowBtn">
+            Managers (0)
+        </a>
+
+
+
+
+
+
+
+
+
+
+
+        <br>
+        <a class="manageCommunity-child-btn" href="#" onclick="Requests(1)" id="invitedUserShowBtn">
+          Invited Members (2)
+        </a>
+    </div>
+    <br>
+  </div>
+  <div class="col-sm-9">
+    <div id="comlist">
+
+
+
+  </div>
+</div>
+
+
+</div>
+
+
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<script type="text/javascript">
+
+
+
+
+
+
+
+  console.log("hii");
+  console.log("<%=data[0].d.member[0].email%>");
+  var memsize=<%=data[0].d.member.length%>
+  console.log(memsize);
+  var comlist=document.getElementById("comlist");
+  for(var i=0;i<memsize;i++)
+  {
+    console.log(<%=data[0].d.member.length%>);
+    var div=document.createElement('div');
+    div.innerHTML=`<div class="col-sm-12 col-xs-12 allcoms community-user-div" style="margin-top:5px;"><div class="col-sm-2 col-xs-3" style="padding:5px;"><a href="/viewprofile/5cee1b470a79ed1439525933"><img src="/Upload/Profile/default.png" class="community-member-pic"></a></div><div class="col-sm-8 col-xs-6 scrollable"><a class="comusername" href="/viewprofile/5cee1b470a79ed1439525933"><%=data[0].d.member.name%></a></div><div class="col-sm-2 col-xs-3"><a class="community-user-short-btn" onclick="update(&quot;5cee1b470a79ed1439525933&quot;,1)" href="#" style="float:left"><i class="fa fa-chevron-up"></i></a><a href="#" class="community-user-short-btn" style="float:right" onclick="removeUser(&quot;5cee1b470a79ed1439525933&quot;,1)"><i class="fa fa-times"></i></a></div></div></div>`;
+    comlist.appendChild(div);
+  }
+
+</script>

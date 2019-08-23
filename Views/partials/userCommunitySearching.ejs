@@ -1,0 +1,334 @@
+<style media="screen">
+  .fa-set{
+    font-size : 14px;
+    padding-right : 0px;
+  }
+  .btn{
+    border-radius : 0;
+  }
+  #page-content-wrapper {
+    left : 0px;
+    position: absolute;
+    padding: 15px;
+    width: 100%;
+    overflow-x: hidden;
+}
+.community-header-top {
+    width: 100%;
+    background-image: linear-gradient(to bottom, #4ba2b7, #42a6be, #38aac6, #29adcd, #0fb1d5);
+    height: 180px;
+}
+.community-head-btn {
+    background-color: rgba(255,255,255,0.1);
+    color: #fff;
+    margin-left: 100px;
+    border: 1px solid #fff;
+}
+a.active-icon {
+    border: 1px solid #fff !important;
+    color: #fff !important;
+    border-bottom: 4px solid #fff !important;
+    background-color: rgba(255,255,255,0.1) !important;
+}
+.community-panel-main-div {
+    border: 0;
+    border-radius: 0;
+    margin-top: 50px;
+}
+.community-panel-heading {
+    border-radius: 0;
+    background-image: linear-gradient(to top, #4ba2b7, #42a6be, #38aac6, #29adcd, #0fb1d5);
+}
+.community-panel-btn {
+    color: #fff;
+    background: transparent;
+    border-color: #fff;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+}
+.community-div {
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-color: #CCCCCC;
+}
+.comnametxt {
+    margin-top: 25px;
+    font-weight: 600;
+    /* color: #7D7D7D; */
+    text-decoration: none;
+    word-wrap: break-word;
+    text-transform: capitalize;
+}
+.community-name {
+    border: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    word-wrap: break-word;
+    font-size: 17px;
+    padding: 12px 0 0 0;
+    outline: none !important;
+    background-color: rgba(0, 0, 0, 0);
+}
+.totalUsers {
+    padding: 0;
+    margin: 0;
+    font-weight: 600;
+    color: #7D7D7D;
+    text-decoration: none;
+    word-wrap: break-word;
+    text-transform: capitalize;
+}
+.nosearch{
+  display : none
+}
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+}
+</style>
+
+  <div id="page-content-wrapper" style="padding:0;margin-top:42px;"> <!--Margin Top is new-->
+           <div class="container-fluid page-content-div" style="padding:0">
+              <div class="row">
+                 <div class="col-lg-12 scoll-possible" style="padding:0">
+
+
+
+
+  <!--====================================================================-->
+  <div class="community-header-top" style="height:50px;padding-top:6px;margin-bottom : 20px">
+  <div class="col-sm-12 community-sub-head">
+    <div class="col-sm-4 community-sub-head">
+      <a class="btn community-head-btn " href="/community">
+        <i class="fa fa-users fa-set"></i>
+      </a>
+      <a class="btn community-head-btn active-icon" style="margin-left:10px" href="/communitysearch">
+        <i class="fa fa-search fa-set"></i>
+      </a>
+
+  </div>
+      <div class="col-sm-4 col-sm-push-4 pc" style="padding:0 50px 0 0">
+    <input class="form-control searchCommunityDiscover" oninput="searchCommunity(event)" id="search" type="text" placeholder="Search Community...">
+  </div>
+  </div>
+  </div>
+  <!--====================================================================-->
+
+   <div class="container" style="padding:0">
+     <div class="col-sm-12 nosearch" id="nosearch">
+
+           <br>
+         <div class="container">
+           <div class="search" id="search"><div class="well community-show-item"><h4>OOPS...!!!</h4>                 <p>Sorry for inconvienence. We didn't find any data.</p></div>                 </div>
+         </div>
+
+       </div>
+  <div class="col-sm-12" id="bigDiv">
+
+
+    </div>
+  </div>
+  </div>
+  <br>
+  <!--====================================================================-->
+
+  </div>
+  </div>
+  </div>
+
+
+
+
+<script type="text/javascript">
+
+  var bigDiv = document.getElementById("bigDiv");
+
+  loadFromServer();
+
+
+  function loadFromServer()
+  {
+
+
+      var filename = '/getCommunityforSearch';
+      var request = new XMLHttpRequest();
+      request.open('GET',filename);
+      request.send();
+      request.onload = function()
+      {
+          commArr = JSON.parse(request.responseText);
+          //console.log(commArr);
+
+          for(var i in commArr)
+          {
+
+                   addToDom(commArr[i]);
+          }
+      }
+  }
+  function addToDom(ob)
+  {
+
+    //  console.log(ob);
+
+      var parentDiv = document.createElement("div");
+      parentDiv.setAttribute("class","container");
+
+      var wrapperdiv =  document.createElement("div");
+      wrapperdiv.setAttribute("class","panel panel-default");
+      wrapperdiv.setAttribute("style"," box-shadow: 0 3px 10px 0 rgba(115,143,147,.3);")
+
+      var div1 = document.createElement("div");
+      div1.setAttribute("class","panel-body");
+      div1.setAttribute("style","padding:0;padding-top:20px");
+
+      var div11 = document.createElement("div");
+      div11.setAttribute("class","col-sm-2 col-xs-3 col-lg-1 col-md-2");
+      var img = document.createElement("img");
+      img.setAttribute("src",ob.image);
+      img.setAttribute("style","height: 70px;width: 70px;border: 3px solid rgb(235, 235, 235);box-shadow: 0 3px 10px 0 rgba(115,143,147,.3);")
+      div11.appendChild(img);
+      div1.appendChild(div11);
+
+
+      var div12 = document.createElement("div");
+      div12.setAttribute("class","col-sm-8 col-xs-6 col-lg-8 col-md-8");
+      var a12 = document.createElement("a");
+      a12.innerHTML = ob.name;
+      a12.setAttribute("class","community-name");
+      a12.setAttribute("href","/usercommunityprofile/"+ob._id);
+      a12.setAttribute("id",ob._id);
+      a12.setAttribute("style","color : #337ab7;cursor : pointer");
+
+      div12.appendChild(a12);
+      div1.appendChild(div12);
+
+      var div13 = document.createElement("div");
+      div13.setAttribute("class","col-sm-2 col-xs-3 col-lg-3 col-md-2");
+      div13.setAttribute("style","padding:15px 10px 0px 10px");
+      var div131 = document.createElement("div");
+      var btn = document.createElement("button");
+      btn.setAttribute("class","btn btn-primary btn-sm pull-right");
+      btn.setAttribute("id",ob._id);
+      if(ob.rule=="Direct")
+      {
+      btn.innerHTML = "JOIN";
+      btn.setAttribute("onclick","joincommunity(event)");
+
+      }
+      else{
+          btn.innerHTML = "ASK TO JOIN";
+          btn.setAttribute("onclick","requestcommunity(event)");
+      }
+      div131.appendChild(btn);
+      div13.appendChild(div131);
+      div1.appendChild(div13);
+
+      wrapperdiv.appendChild(div1);
+
+      var div2 = document.createElement("div");
+      div2.setAttribute("class","panel-body");
+      div2.setAttribute("style","padding:10px 0 10px 0");
+
+      var div21 = document.createElement("div");
+      div21.setAttribute("class","col-sm-12 col-xs-12 col-lg-12 col-md-12");
+      var p21 = document.createElement("p");
+      p21.setAttribute("id","memeberpara");
+        p21.setAttribute("class","totalUsers");
+      p21.innerHTML = "0 Members";
+      div21.appendChild(p21);
+      div2.appendChild(div21);
+
+      var div22 = document.createElement("div");
+      div22.setAttribute("class","col-sm-12 col-xs-12 col-lg-12 col-md-12");
+      var p22 = document.createElement("p");
+      p22.setAttribute("id","descpara");
+      p22.innerHTML = ob.desc;
+      div22.appendChild(p22);
+      div2.appendChild(div22);
+
+
+      wrapperdiv.appendChild(div1);
+      wrapperdiv.appendChild(div2);
+
+      parentDiv.appendChild(wrapperdiv);
+      bigDiv.appendChild(parentDiv);
+
+
+
+
+  }
+
+function searchCommunity(event)
+{
+//console.log(event.target.value);
+
+var request = new XMLHttpRequest();
+request.open('POST',"/searchCommunity");
+request.setRequestHeader("Content-Type", "application/json");
+request.send(JSON.stringify({'search' : event.target.value}));
+
+request.onload = function()
+{
+  var nosearch=document.getElementById('nosearch');
+    nosearch.setAttribute("style","display : none");
+    commArr = JSON.parse(request.responseText);
+  //  console.log(commArr);
+    bigDiv.innerHTML="";
+
+    if(commArr.length==0)
+    {
+      nosearch.setAttribute("style","display : block");
+    }
+    for(var i in commArr)
+    {
+
+             addToDom(commArr[i]);
+    }
+}
+
+}
+
+
+
+function joincommunity(event)
+{
+  console.log("join");
+
+  var request = new XMLHttpRequest();
+  request.open('POST',"/joincommunity");
+  request.setRequestHeader("Content-Type", "application/json");
+  request.send(JSON.stringify({'id' : event.target.id}));
+
+  request.onload = function()
+  {
+    bigDiv.innerHTML="";
+    loadFromServer();
+  }
+}
+
+
+
+function requestcommunity(event)
+{
+  console.log(event.target.id);
+  var request = new XMLHttpRequest();
+  request.open('POST',"/requestcommunity");
+  request.setRequestHeader("Content-Type", "application/json");
+  request.send(JSON.stringify({'id' : event.target.id}));
+
+  request.onload = function()
+  {
+    bigDiv.innerHTML="";
+    loadFromServer();
+  }
+}
+
+
+</script>
